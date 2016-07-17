@@ -1,5 +1,6 @@
 
-var app = angular.module('achManager', ['ionic'])
+
+var app = angular.module('achManager', ['ionic', 'ui.router']);
 
 app.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
@@ -27,4 +28,30 @@ app.controller('achievments_Ctrl', function ($scope) {
     { name: 'Achievment2', progress: '50' },
     { name: 'Achievment3', progress: '100' }
   ];
-}); 
+});
+
+
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+    .state('page1', {
+      url: '/page1',
+      templateUrl: 'templates/page1.html'
+    })
+
+    .state('achievment', {
+      url: "/AddAchievment",
+      templateUrl: "templates/AddAchievment.html"
+    });
+  $urlRouterProvider.otherwise('templates/AddAchievment.html');
+});
+
+app.controller("getValue", function ($scope, $rootScope, $element, $interval) {
+  $scope.min = 0;
+  $scope.max = 100;
+  $scope.modelValue = 30;
+
+  $interval(function () {
+    $scope.inputValue = $element.find('input').val();
+  }, 250);
+});
