@@ -2,3 +2,49 @@
 a{
 	text-decoration: none;
 }
+
+.progressbar{
+	height:20px;
+	border-radius:5px;
+	box-shadow: 1px 1px 1px 1px black;
+	color:white;
+}
+
+
+.center{
+	text-align: center !important;
+}
+
+.left{
+float:right;
+}
+
+.right{
+	float:right;
+}
+
+.relative{
+	position : relative;
+}
+
+
+
+/*
+.bubble { 
+  width:0%;
+  animation:gauge 30s ease-in-out forwards; 
+  -webkit-animation:gauge 30s ease-in-out forwards;
+}
+
+@keyframes gauge {
+  0%      { width: 0%; }
+  25%     { width: 50%; }
+  75%     { width: 100%;}
+  100%  { width: 100%;}
+}
+@-webkit-keyframes gauge {
+ 0%      { width: 0%; }
+  25%     { width: 50%; }
+  75%     { width: 100%;}
+    100%  { width: 100%;}
+}*/

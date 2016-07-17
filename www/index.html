@@ -19,50 +19,73 @@
   <script src="js/app.js"></script>
   <script src="js/achievmentsManagment.js"></script>
   <script src="js/routing.js"></script>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/jquery.js"></script>
 </head>
 
 <body ng-app="achManager">
-
   <ion-side-menus>
 
     <!-- main app content -->
     <ion-side-menu-content>
-      <div ui-view>
+      <!-- content header -->
+      <div class="bar bar-header col relative">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <div class="h1 title">Pretty Achievments Manager</div>
+      </div>
+      <!-- content body -->
+      <div ui-view class="col relative">
+        <!-- achievments card-->
         <div class="card" ng-controller="achievments_Ctrl">
-          <div class="item item-divider">
-            Your Progress
+          <div class="item item-divider item-positive">
+            <span>Your progress</span>
           </div>
           <div class="item item-text-wrap">
             <ion-list>
               <ion-item ng-repeat="x in achievments">
-                {{ x.name + ', ' + x.progress }}
+                <span ng-class="achTitle()">{{x.name}}</span>
+                <div class="progressbar center" ng-style="setColor(x.progress);">
+                  {{ x.progress + '%' }}
+                </div>
+
+<!--<h2 ng-class="{ bubble: x.progress }">
+                  Stuff Stuff
+                </h2>-->
+
+
               </ion-item>
             </ion-list>
           </div>
         </div>
+        <!-- quick-add new achievment card -->
+        <a href="#achievmentsManagment" class="button button-large button-positive icon ion-plus-circled icon-right right">
+          Add new
+        </a>
       </div>
     </ion-side-menu-content>
 
     <!-- side menu -->
     <ion-side-menu side="left">
-      <ion-content>
-        <ion-header-bar class="bar bar-calm">
-          Menu
-          <!-- Ισως μπουν πληροφοριες σε αυτο το κομματι πχ. Ονομα , θερμοκρασια ωρα κτλ.  -->
-        </ion-header-bar>
-        <ion-list class="has-header" style="position:relative;">
-          <ion-item href="#dashboard">
-            Dashboard
-          </ion-item>
-          <ion-item href="#achievmentsManagment">
-            Achievments Managment
-          </ion-item>
-          <ion-item href="#profil">
-            Profil
-          </ion-item>
-        </ion-list>
-      </ion-content>
+      <!-- menu header -->
+      <div class="bar bar-header bar-dark col relative">
+        <span class="title">Menu</span>
+      </div>
+      <!-- menu items -->
+      <ion-list class="col">
+        <ion-item href="#dashboard" menu-close>
+          Dashboard
+        </ion-item>
+        <ion-item href="#achievmentsManagment" menu-close>
+          Achievments Managment
+        </ion-item>
+        <ion-item href="#profil" menu-close>
+          Profil
+        </ion-item>
+      </ion-list>
     </ion-side-menu>
+
   </ion-side-menus>
 </body>
 

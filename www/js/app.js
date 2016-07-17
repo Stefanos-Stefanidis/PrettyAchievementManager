@@ -21,5 +21,3 @@ app.run(function ($ionicPlatform) {
   });
 });
 // end of run
-
-

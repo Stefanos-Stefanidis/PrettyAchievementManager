@@ -6,6 +6,22 @@ app.controller('achievments_Ctrl', function ($scope) {
     { name: 'Achievment2', progress: '50', description: '', points: '' },
     { name: 'Achievment3', progress: '100', description: '', points: '' }
   ];
+
+
+  $scope.setColor = function (progress) {
+    if (progress == '100') {
+      return {
+        'background': 'green',
+        'width': (progress + '%')
+      }
+    }
+    else {
+      return {
+        'background': 'red',
+        'width': (progress + '%'),
+      }
+    }
+  }
 });
 
 
