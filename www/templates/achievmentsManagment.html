@@ -38,17 +38,17 @@
 	<div class="h3 item">Display achievments</div>
 
  	<ion-item>
- 		 <div class="row header">
-		    <div class="col col-50">Name</div>
-		    <div class="col col-15 ion-arrow-graph-up-right"></div>
-		    <div class="col col-15"><i class="ion-android-star"></i></div>
-		    <div class="col col-20"></div>
+ 		 <div class="row tableRow header">
+		    <div class="col tableCol col-50">Name</div>
+		    <div class="col tableCol col-15 ion-arrow-graph-up-right"></div>
+		    <div class="col tableCol col-15"><i class="ion-android-star"></i></div>
+		    <div class="tableCol col-20"></div>
         </div>
-      	<div class="row" ng-repeat="achievment in achievments">
-	      	<div class="col col-50">{{achievment.name}}</div>
-	      	<div class="col col-15">{{achievment.progress}}</div>
-	      	<div class="col col-15">{{achievment.points}}</div>
-	     	<div class="col col-20"><button class="ion-edit button button-clear button-positive" ng-click=""></button></div>
+      	<div class="row tableRow" ng-repeat="achievment in achievments">
+	      	<div class="col tableCol col-50">{{achievment.name}}</div>
+	      	<div class="col tableCol col-15">{{achievment.progress}}</div>
+	      	<div class="col tableCol col-15">{{achievment.points}}</div>
+	     	<div class="col tableCol col-20"><button class="ion-edit button button-clear button-positive" ng-click=""></button></div>
         </div>	
   	</ion-item>
 </ion-list>

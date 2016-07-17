@@ -8,12 +8,27 @@ app.controller('achievments_Ctrl', function ($scope) {
     { name: 'Achievment3', progress: '100', description: 'desc3', points: '100' }
   ];
 
-  
+  $scope.setColor = function (progress) {
+    if (progress == '100') {
+      return {
+        'background': 'green',
+        'width': (progress + '%')
+      }
+    }
+    else {
+      return {
+        'background': 'red',
+        'width': (progress + '%'),
+      }
+    }
+  }
+});
+
 /*  $scope.addAchievement = function() {
       $scope.achievments.push({name:$scope.name1,progress:$scope.name1,description:$scope.name1,points:$scope.name1});
       $scope.name1 = '';
-  };*/
-});
+    };*/
+
 
 
 app.controller("getValue", function ($scope, $element) {
@@ -22,5 +37,5 @@ app.controller("getValue", function ($scope, $element) {
   $scope.modelValue = 30;
   
   $scope.inputValue = $element.find('input').val();
- 
+  
 });
