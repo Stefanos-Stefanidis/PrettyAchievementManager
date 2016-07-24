@@ -8,7 +8,7 @@ app.controller('achievments_Ctrl', function ($scope) {
     { name: 'Achievment3', progress: '100', description: 'desc3', points: '100' }
   ];
 
-  $scope.setColor = function (progress) {
+  $scope.setProgress = function (progress) {
     if (progress == '100') {
       return {
         'background': 'green',

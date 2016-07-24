@@ -4,6 +4,11 @@
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
+    .state('home', {
+      url: "/home",
+      templateUrl: "templates/home.html",
+    })
+    
     .state('profil', {
       url: '/profil',
       templateUrl: 'templates/profil.html',
@@ -14,12 +19,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: "templates/achievmentsManagment.html"
     })
 
-    .state('dashboard', {
-      url: "/dashboard",
-      templateUrl: "index.html"
-    });
 
-
-  // $urlRouterProvider.otherwise('dashboard');
+  $urlRouterProvider.otherwise("/home");
 
 });

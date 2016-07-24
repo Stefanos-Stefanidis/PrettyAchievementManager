@@ -1,1 +1,37 @@
-<p>profil html</p>
+<!-- user data -->
+<div ng-controller="user_Ctrl" class="userData">
+
+    <div class="col left">
+        <!-- profil picture -->
+        <img src="" alt="profil pic" class="profilPic" />
+        <!-- username -->
+        <div class="username">
+            <span>{{ name }}</span>
+            <span>{{ lastname }}</span>
+        </div>
+    </div>
+    <div class="col left tblUsrStats">
+        <table>
+            <tr>
+                <td id="achCount"> <span>{{ achievmentsCount }}</span>
+                    <h5>Completed achievments</h5>
+                </td>
+                <td id="sBdgCount"> <span>{{ sBadges }}</span>
+                    <h5>Silver badges</h5>
+                </td>
+                <td id="gBdgCount"> <span>{{ gBadges }}</span>
+                    <h5>Gold badges</h5>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <!-- change user data -->
+    <div></div>
+    <!-- badges -->
+    <div></div>
+    <!-- rate / donate  -->
+    <div></div>
+</div>
