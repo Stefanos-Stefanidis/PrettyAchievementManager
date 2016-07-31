@@ -1,0 +1,20 @@
+<!-- achievments card-->
+<div class="card" ng-controller="achievments_Ctrl">
+    <div class="item item-divider item-positive">
+        <span>Your progress</span>
+    </div>
+    <div class="item item-text-wrap">
+        <ion-list>
+            <ion-item ng-repeat="x in achievments" class="repeated-item">
+                <span>{{x.name}}</span>
+                <div class="progressbar center" ng-style="setProgress(x.progress);">
+                    {{ x.progress + '%' }}
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</div>
+<!-- quick-add new achievment card -->
+<a href="#achievmentsManagment" class="button button-large button-positive icon ion-plus-circled icon-right right">
+          Add new
+</a>

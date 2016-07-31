@@ -1,1 +1,45 @@
-<p>profil html</p>
+<!-- user data -->
+<div ng-controller="user_Ctrl" class="userData">
+
+    <!-- user -->
+    <div class="col left">
+        <!-- profil picture -->
+        <img src="" alt="profil pic" class="profilPic" />
+        <!-- username -->
+        <div class="username">
+            <span>{{ name }}</span>
+            <span>{{ lastname }}</span>
+        </div>
+    </div>
+
+    <!-- user stats -->
+    <div class="col left tblUsrStats">
+        <table>
+            <tr>
+                <td id="achCount"> <span>{{ achievmentsCount }}</span>
+                    <h5>Completed achievments</h5>
+                </td>
+                <td id="sBdgCount"> <span>{{ sBadges }}</span>
+                    <h5>Silver badges</h5>
+                </td>
+                <td id="gBdgCount"> <span>{{ gBadges }}</span>
+                    <h5>Gold badges</h5>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- badges -->
+    <div class="col left" ng-controller="badges_Ctrl">
+        <div class="left myBadge" style="width:100px;" ng-repeat="x in silverBadges">
+            <round-progress max="x.max" current="x.progress" color="#45ccce" bgcolor="#eaeaea" radius="100" stroke="5" semi="false" rounded="true"
+                clockwise="true" responsive="true" duration="800" animation="easeInOutQuart" animation-delay="10" offset="inherit">
+            </round-progress>
+            <span id="bdgMAX">{{ x.progress + '/' +  x.max }}</span>
+            <div id="bdgDESC">{{ x.description }}</div>
+        </div>
+    </div>
+
+    <!-- rate / donate  -->
+    <div></div>
+</div>

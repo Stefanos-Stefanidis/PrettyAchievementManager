@@ -1,6 +1,6 @@
 
 
-var app = angular.module('achManager', ['ionic', 'ui.router']);
+var app = angular.module('achManager', ['ionic', 'ui.router' , 'angular-svg-round-progressbar']);
 
 
 app.run(function ($ionicPlatform) {
@@ -21,3 +21,17 @@ app.run(function ($ionicPlatform) {
   });
 });
 // end of run
+
+
+
+app.controller('basicTasks_Ctrl', function ($scope) {
+
+  //stops the app
+  $scope.closeApp = function () {
+    ionic.Platform.exitApp();
+  };
+
+  $scope.refreshPage = function () {
+    window.location.reload(true);
+  };
+});

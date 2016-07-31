@@ -41,7 +41,7 @@ textarea{
 }
 
 .left{
-  float:right;
+  float:left;
 }
 
 .right{
@@ -52,24 +52,63 @@ textarea{
   position : relative;
 }
 
-
-
-/*
-.bubble { 
-  width:0%;
-  animation:gauge 30s ease-in-out forwards; 
-  -webkit-animation:gauge 30s ease-in-out forwards;
+.profilPic{
+    float: right;
+    height: 85px;
+    width: 85px;
+    text-align:center;
 }
 
-@keyframes gauge {
-  0%      { width: 0%; }
-  25%     { width: 50%; }
-  75%     { width: 100%;}
-  100%  { width: 100%;}
+.username{
+    float:right;
+    font-size: 20px;
+    font-weight: 800;
+    top: 64px;
+    margin-right: 5px;
+    position: relative;
 }
-@-webkit-keyframes gauge {
- 0%      { width: 0%; }
-  25%     { width: 50%; }
-  75%     { width: 100%;}
-    100%  { width: 100%;}
-}*/
+
+.tblUsrStats{
+padding:10px;
+margin-top:10px;
+}
+.tblUsrStats table , .tblUsrStats tbody , .tblUsrStats tr{
+    width:100%;
+    
+}
+.tblUsrStats tr td{
+    width:33.3%;
+    text-align:center;
+    padding: 5px;
+    border-left: 1px solid #D3D3D3;
+    border-right: 1px solid #D3D3D3;
+    border-bottom: 1px solid #D3D3D3;
+    
+}
+.tblUsrStats tr td span{
+    width: 100%;
+    font-size:25px;
+}
+
+.myBadge{
+    margin:9px;
+    text-align:center;
+}
+.myBadge span{
+    top: -60px;
+    position: relative;
+    padding:30%;
+    transition: font-size 0.1s;
+}
+
+#bdgDESC
+{
+    padding:0px;
+    top:-105px;
+    display:none;
+    width:70px;
+    height:70px;
+    overflow:auto !important;
+    font-size:9px;
+    margin:0px;
+}
