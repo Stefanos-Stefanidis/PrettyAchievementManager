@@ -42,6 +42,7 @@ app.controller('achievments_Ctrl', function ($scope,$element,$state) {
           text: $scope.todoText,
           complete: '0',
           points: $scope.inputValue,
+          date:  Date(),
           done: false
         });
         $scope.todoText = ''; //clear the input after adding
@@ -71,6 +72,22 @@ app.controller('achievments_Ctrl', function ($scope,$element,$state) {
       $state.go($state.current, {}, {reload: true})
     });
     localStorage.setItem('todos', JSON.stringify($scope.todos));
+  };
+
+  var limitStep = 1;
+  var limitOffset = -4;
+  $scope.limit = limitStep;
+  $scope.limitOffsetVar = limitOffset;
+  $scope.incrementLimit = function() {
+   
+      $scope.limit += limitStep;
+      $scope.limitOffsetVar += limitOffset;
+   
+  };
+  $scope.decrementLimit = function() {
+      $scope.limit -= limitStep;
+      $scope.limitOffsetVar -= limitOffset;
+
   };
 });
 

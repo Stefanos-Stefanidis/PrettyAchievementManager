@@ -41,26 +41,59 @@
   <div class="h3 item">Display achievments</div>
 
   <ion-item>
-     <div class="row tableRow header">
+      <span class="item item-input">
+        <ion-label primary class="ion-search test"></ion-label>
+        <input ng-model="searchText" type="text" placeholder=" Search here...">
+      </span>
+    
+
+      <div class="row tableRow header">
         <div class="col tableCol col-50">Name</div>
         <div class="col tableCol col-15 ion-arrow-graph-up-right"> %</div>
         <div class="col tableCol col-15"><i class="ion-android-star"></i></div>
         <div class="tableCol col-20"></div>
-        </div>
-        <div class="row tableRow" ng-repeat="todo in todos track by $index">
-          <div class="col tableCol col-50">{{ todo.text }}</div>
-          <div class="col tableCol col-15">{{ todo.complete }}</div>
-          <div class="col tableCol col-15">{{ todo.points }}</div>
-        <div class="col tableCol col-20"><input type="checkbox" data-ng-model="todo.done"></div>
-        </div>  
-    </ion-item>
+      </div>
+      <div class="row tableRow" ng-init="count=1" ng-model="search" 
+        ng-repeat="todo in todos | limitTo :4:limitOffsetVar | orderBy : '-date'| filter:searchText ">
+        <div class="col tableCol col-50">{{ todo.text }}</div>
+        <div class="col tableCol col-15">{{ todo.complete }}</div>
+        <div class="col tableCol col-15">{{ todo.points }}</div>
+        <div class="col tableCol col-20">
+   
+        <input type="checkbox"  data-ng-model="todo.done">
 
+</div>
+            
+
+
+        </div>
+      </div>
+        
+     <!--  <span >{{ remaining() }} of {{ todos.length }}    remaining</span>  -->
+    </ion-item>
+          <div class="col-offset-90">
+            <span id="pagination">{{limit}}/{{ todos.length/4|number:0 }}</span>
+          </div>
       
     <button ng-click="archive()" class="button button-assertive">
-        Remove Completed Items
+        <i  class="ion-trash-a"></i>
     </button>
-   <span>{{ remaining() }} of {{ todos.length }} remaining</span>
-      
+
+
+ 
+   <div class="row">
+      <div class="col-50" >
+        <button    ng-click="incrementLimit()" class="button button-balanced button-block">
+            show next
+        </button>
+      </div>
+      <div class="col-50" >
+        <button  ng-click="decrementLimit()" class="button button-energized button-block">
+            show previous
+        </button>
+      </div>
+    </div>
+
 </ion-list>
 
 <button class="button button-calm button-block" ng-show="!toggle"  ng-click="toggle = true">    Show achivements<i class="col-offset-50 ion-ios-arrow-right"></i>
