@@ -1,64 +1,75 @@
 
 <!-- achievments name -->
 <ion-list ng-hide="false" ng-show="!toggle"   ng-controller="achievments_Ctrl">
-			
-		<label class="item item-input">
-			<span class="input-label">Add goal:</span>
-			<input type="text">
-		</label>
-		
-		<!--points-->		
-		<ion-item ng-controller='getValue'>
-			<p>Points: </p>
-			<div class="item range range-positive list">	
-				<i class="ion-android-star-half"></i>
-				<input type="range" name="volume" ng-model='modelValue' min='{{min}}' max='{{max}}' step='1' value="{{modelValue}}">
-				<i class="ion-android-star"></i>
-				<i class="ion-android-star"></i>
-				<i class="ion-android-star"></i>
-			</div>		
-			<input type="text" value = {{modelValue}}> 
-		</ion-item>
+  <form  ng-submit="addTodo()"> 
+      <!--points-->   
+    <ion-item>
+      <p>Points: </p>
+      <div class="item range range-positive list">  
+        <i class="ion-android-star-half"></i>
+        <input type="range" name="volume" ng-model='modelValue' min='{{min}}' max='{{max}}' step='1' value="{{modelValue}}">
+        <i class="ion-android-star"></i>
+        <i class="ion-android-star"></i>
+        <i class="ion-android-star"></i>
+      </div>  
+        <input type="hidden"  value = "{{modelValue}}">   
+    </ion-item>
 
-		<!-- achievment description -->
-		<ion-item>
-			<p>Description:</p>
-			<textarea  class="item" placeholder="Add description here"></textarea>
-		</ion-item>
-		
-		<div class="item col-offset-80 ">
-			<button type="submit" class="button button-outline  button-balanced ion-android-done"></button>
-		</div>
-		<hr>
+    <label class="item item-input">
+      <span class="input-label">Add goal:</span>
+         <input type="text" ng-model="todoText" placeholder="Enter new ToDo item" />
+    </label>
+
+    <!-- achievment description -->
+    <ion-item>
+      <p>Description:</p>
+      <textarea  class="item" placeholder="Add description here"></textarea>
+    </ion-item>
+    
+        <div class="item col-offset-80 ">
+      <button type="submit" class="button button-outline  button-balanced ion-android-done"></button>
+    </div>
+
+
+  </form>
+    <hr>
 </ion-list>
 
 
 <ion-list  ng-controller="achievments_Ctrl" ng-hide="true" ng-show="toggle">
 
-	<div class="h3 item">Display achievments</div>
+  <div class="h3 item">Display achievments</div>
 
- 	<ion-item>
- 		 <div class="row tableRow header">
-		    <div class="col tableCol col-50">Name</div>
-		    <div class="col tableCol col-15 ion-arrow-graph-up-right"></div>
-		    <div class="col tableCol col-15"><i class="ion-android-star"></i></div>
-		    <div class="tableCol col-20"></div>
+  <ion-item>
+     <div class="row tableRow header">
+        <div class="col tableCol col-50">Name</div>
+        <div class="col tableCol col-15 ion-arrow-graph-up-right"> %</div>
+        <div class="col tableCol col-15"><i class="ion-android-star"></i></div>
+        <div class="tableCol col-20"></div>
         </div>
-      	<div class="row tableRow" ng-repeat="achievment in achievments">
-	      	<div class="col tableCol col-50">{{achievment.name}}</div>
-	      	<div class="col tableCol col-15">{{achievment.progress}}</div>
-	      	<div class="col tableCol col-15">{{achievment.points}}</div>
-	     	<div class="col tableCol col-20"><button class="ion-edit button button-clear button-positive" ng-click=""></button></div>
-        </div>	
-  	</ion-item>
+        <div class="row tableRow" ng-repeat="todo in todos track by $index">
+          <div class="col tableCol col-50">{{ todo.text }}</div>
+          <div class="col tableCol col-15">{{ todo.complete }}</div>
+          <div class="col tableCol col-15">{{ todo.points }}</div>
+        <div class="col tableCol col-20"><input type="checkbox" data-ng-model="todo.done"></div>
+        </div>  
+    </ion-item>
+
+      
+    <button ng-click="archive()" class="button button-assertive">
+        Remove Completed Items
+    </button>
+   <span>{{ remaining() }} of {{ todos.length }} remaining</span>
+      
 </ion-list>
 
-<button class="button button-calm button-block" ng-show="!toggle"  ng-click="toggle = true">		Show achivements<i class="col-offset-50 ion-ios-arrow-right"></i>
+<button class="button button-calm button-block" ng-show="!toggle"  ng-click="toggle = true">    Show achivements<i class="col-offset-50 ion-ios-arrow-right"></i>
 </button>
 
 <button class="button button-calm button-block" ng-show="toggle" ng-click="toggle = false">
-	<i class="ion-ios-arrow-left"></i><span class="col-offset-50">Add goal </span> 
+  <i class="ion-ios-arrow-left"></i><span class="col-offset-50">Add goal </span> 
 </button>
+
 
 
 
