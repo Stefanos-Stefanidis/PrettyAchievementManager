@@ -41,7 +41,7 @@ textarea{
 }
 
 .left{
-  float:right;
+  float:left;
 }
 
 .right{
@@ -88,4 +88,27 @@ margin-top:10px;
 .tblUsrStats tr td span{
     width: 100%;
     font-size:25px;
+}
+
+.myBadge{
+    margin:9px;
+    text-align:center;
+}
+.myBadge span{
+    top: -60px;
+    position: relative;
+    padding:30%;
+    transition: font-size 0.1s;
+}
+
+#bdgDESC
+{
+    padding:0px;
+    top:-105px;
+    display:none;
+    width:70px;
+    height:70px;
+    overflow:auto !important;
+    font-size:9px;
+    margin:0px;
 }

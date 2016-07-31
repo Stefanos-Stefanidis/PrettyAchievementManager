@@ -6,7 +6,7 @@
     <div class="item item-text-wrap">
         <ion-list>
             <ion-item ng-repeat="x in achievments" class="repeated-item">
-                <span ng-class="achTitle()">{{x.name}}</span>
+                <span>{{x.name}}</span>
                 <div class="progressbar center" ng-style="setProgress(x.progress);">
                     {{ x.progress + '%' }}
                 </div>

@@ -1,6 +1,6 @@
 
 
-var app = angular.module('achManager', ['ionic', 'ui.router']);
+var app = angular.module('achManager', ['ionic', 'ui.router' , 'angular-svg-round-progressbar']);
 
 
 app.run(function ($ionicPlatform) {

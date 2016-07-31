@@ -8,6 +8,7 @@ app.controller('achievments_Ctrl', function ($scope) {
     { name: 'Achievment3', progress: '100', description: 'desc3', points: '100' }
   ];
 
+  // sets the progressbar styles 
   $scope.setProgress = function (progress) {
     if (progress == '100') {
       return {
@@ -35,7 +36,7 @@ app.controller("getValue", function ($scope, $element) {
   $scope.min = 0;
   $scope.max = 100;
   $scope.modelValue = 30;
-  
+
   $scope.inputValue = $element.find('input').val();
-  
+
 });

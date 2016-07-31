@@ -9,6 +9,7 @@ app.controller('user_Ctrl', function ($scope) {
     $scope.sBadges = '10';
     $scope.gBadges = '0';
 
+    // calculates and print user stats . (ποζεριά)
     angular.element(document).ready(function () {
         var counter = 0;
 
